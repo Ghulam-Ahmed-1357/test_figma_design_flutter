@@ -1,6 +1,7 @@
 import 'package:first_figma_design/app_navigation/app_navigation.dart';
 import 'package:first_figma_design/controller/controller.dart';
 import 'package:first_figma_design/custom_widgets/custom_bottom_navigation_bar.dart';
+import 'package:first_figma_design/custom_widgets/home_page_post.dart';
 import 'package:first_figma_design/custom_widgets/profile_image_with_name.dart';
 import 'package:first_figma_design/models/model.dart';
 import 'package:first_figma_design/route_names/route_names.dart';
@@ -162,6 +163,27 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10),
+                controller.is_mf.value
+                    ? HomePagePost(
+                      imageUrl: 'assets/images/i1.png',
+                      text:
+                          'If you could live anywhere\nin the world, where would\nyou pick',
+                      name: 'Miranda Kehlani',
+                      nickName: 'STUTTGART',
+                      title: 'Travel',
+                      iconUrl: 'assets/images/image1.jfif',
+                      profileImage: 'assets/images/u1.png',
+                    )
+                    : HomePagePost(
+                      imageUrl: 'assets/images/image9.jpeg',
+                      text:
+                          'If you could live anywhere\nin the world, where would\nyou pick',
+                      name: 'Miranda Kehlani',
+                      nickName: 'STUTTGART',
+                      title: 'Travel',
+                      iconUrl: 'assets/images/image1.jfif',
+                      profileImage: 'assets/images/u1.png',
+                    ),
               ],
             ),
           ),
