@@ -53,7 +53,7 @@ class Login extends StatelessWidget {
               padding: const EdgeInsets.only(top: 2),
               child: InkWell(
                 onTap: () {
-                  AppNavigation.pushNamed(context, RouteNames.home);
+                  AppNavigation.pushNamed(context, RouteNames.mainPage);
                 },
                 child: Text.rich(
                   TextSpan(

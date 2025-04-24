@@ -1,5 +1,6 @@
 import 'package:first_figma_design/app_navigation/app_navigation.dart';
 import 'package:first_figma_design/controller/controller.dart';
+import 'package:first_figma_design/custom_widgets/custom_bottom_navigation_bar.dart';
 import 'package:first_figma_design/custom_widgets/profile_image_with_name.dart';
 import 'package:first_figma_design/models/model.dart';
 import 'package:first_figma_design/route_names/route_names.dart';
@@ -57,13 +58,19 @@ class HomePage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      ProfileImageWithName(name: "My Story", imageUrl: "assets/images/user_profile.png", border: false, ),
+                      ProfileImageWithName(
+                        name: "My Story",
+                        imageUrl: "assets/images/user_profile.png",
+                        border: false,
+                      ),
                       Row(
-                        children:
-                          List.generate(statusList.length, (index){
-                            return ProfileImageWithName(name: statusList[index].title, imageUrl: statusList[index].image, border: true);
-                          })
-                        ,
+                        children: List.generate(statusList.length, (index) {
+                          return ProfileImageWithName(
+                            name: statusList[index].title,
+                            imageUrl: statusList[index].image,
+                            border: true,
+                          );
+                        }),
                       ),
                     ],
                   ),
