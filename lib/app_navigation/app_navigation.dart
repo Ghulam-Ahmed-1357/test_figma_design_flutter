@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 
 class AppNavigation {
-  static pushNamed(BuildContext context, String page){
-    Navigator.pushNamed(context, page);
+  static pushNamed(String page){
+    Get.to(page);
   }
 }

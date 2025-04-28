@@ -9,11 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final MyGetController controller = Get.put(MyGetController());
 
   @override
   Widget build(BuildContext context) {
-    final MyGetController controller = Get.put(MyGetController());
     List<Model> statusList = [
       Model(image: 'assets/images/prof2.png', title: 'Selena'),
       Model(image: 'assets/images/prof3.png', title: 'Clara'),
@@ -35,7 +36,7 @@ class HomePage extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: () {
-                AppNavigation.pushNamed(context, RouteNames.matchPage);
+                Get.toNamed(RouteNames.matchPage);
               },
               icon: Container(
                 decoration: BoxDecoration(
@@ -51,7 +52,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.00),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -94,14 +95,13 @@ class HomePage extends StatelessWidget {
                             child: Obx(
                               () => GestureDetector(
                                 onTap: () {
-                                  controller.is_sp.value = false;
-                                  controller.is_mf.value = true;
+                                  controller.isMakeFriends.value = true;
                                 },
                                 child: Container(
                                   height: 42,
                                   decoration: BoxDecoration(
                                     color:
-                                        controller.is_mf.value
+                                        controller.isMakeFriends.value
                                             ? Colors.white
                                             : Colors.grey.shade200,
                                     borderRadius: BorderRadius.circular(30),
@@ -128,16 +128,15 @@ class HomePage extends StatelessWidget {
                             child: Obx(
                               () => GestureDetector(
                                 onTap: () {
-                                  controller.is_sp.value = true;
-                                  controller.is_mf.value = false;
+                                  controller.isMakeFriends.value = false;
                                 },
                                 child: Container(
                                   height: 42,
                                   decoration: BoxDecoration(
                                     color:
-                                        controller.is_sp.value
-                                            ? Colors.white
-                                            : Colors.grey.shade200,
+                                        controller.isMakeFriends.value
+                                            ? Colors.grey.shade200
+                                            : Colors.white,
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                   child: Padding(
@@ -163,27 +162,38 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10),
-                controller.is_mf.value
-                    ? HomePagePost(
-                      imageUrl: 'assets/images/i1.png',
-                      text:
-                          'If you could live anywhere\nin the world, where would\nyou pick',
-                      name: 'Miranda Kehlani',
-                      nickName: 'STUTTGART',
-                      title: 'Travel',
-                      iconUrl: 'assets/images/image1.jfif',
-                      profileImage: 'assets/images/u1.png',
-                    )
-                    : HomePagePost(
-                      imageUrl: 'assets/images/image9.jpeg',
-                      text:
-                          'If you could live anywhere\nin the world, where would\nyou pick',
-                      name: 'Miranda Kehlani',
-                      nickName: 'STUTTGART',
-                      title: 'Travel',
-                      iconUrl: 'assets/images/image1.jfif',
-                      profileImage: 'assets/images/u1.png',
-                    ),
+                //controller.is_mf.value
+                Obx(
+                  () => HomePagePost(
+                    imageUrl:
+                        controller.isMakeFriends.value
+                            ? 'assets/images/i1.png'
+                            : 'assets/images/image9.jpeg',
+                    text:
+                        'If you could live anywhere\nin the world, where would\nyou pick',
+                    name: 'Miranda Kehlani',
+                    nickName: 'STUTTGART',
+                    title: 'Travel',
+                    iconUrl: 'assets/images/image1.jfif',
+                    profileImage: 'assets/images/u1.png',
+                  ),
+                ),
+                SizedBox(height: 20,),
+                Obx(
+                      () => HomePagePost(
+                    imageUrl:
+                    controller.isMakeFriends.value
+                        ? 'assets/images/image7.jfif'
+                        : 'assets/images/image10.jpeg',
+                    text:
+                    'If you like to play football\nor any other game you \ncan pick',
+                    name: 'Hejeal Damon',
+                    nickName: 'SYAIOELL',
+                    title: 'Football',
+                    iconUrl: 'assets/images/image6.jfif',
+                    profileImage: 'assets/images/image2.jfif',
+                  ),
+                ),
               ],
             ),
           ),

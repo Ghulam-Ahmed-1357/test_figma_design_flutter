@@ -24,26 +24,24 @@ class HomePagePost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.4,
+      height: MediaQuery.of(context).size.height * 0.45,
       width: double.infinity,
       child: Stack(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
-            child:
-            Image.asset(
-              'assets/images/i1.png',
-              height:
-              MediaQuery.of(context).size.height * 0.45,
+            child: Image.asset(
+              imageUrl,
+              height: MediaQuery.of(context).size.height * 0.45,
               width: double.infinity,
               fit: BoxFit.fill,
-            )
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(16),
             child: Container(
               height: 40,
-              width: 100,
+              width: 113,
               decoration: BoxDecoration(
                 color: Colors.white38,
                 borderRadius: BorderRadius.circular(20),
@@ -56,11 +54,7 @@ class HomePagePost extends StatelessWidget {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(40),
-                      child: Image.asset(
-                        iconUrl,
-                        height: 30,
-                        width: 30,
-                      ),
+                      child: Image.asset(iconUrl, height: 30, width: 30),
                     ),
                     Text(
                       title,
@@ -76,9 +70,9 @@ class HomePagePost extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: MediaQuery.of(context).size.height * 0.25,
+            bottom: 60,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(16.0),
               child: Text(
                 text,
                 style: TextStyle(
@@ -90,9 +84,9 @@ class HomePagePost extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: MediaQuery.of(context).size.height * 0.36,
+            bottom: -5,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(16.0),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
                 height: 60,
@@ -109,8 +103,7 @@ class HomePagePost extends StatelessWidget {
                       ),
                     ),
                     Column(
-                      mainAxisAlignment:
-                      MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -140,7 +133,7 @@ class HomePagePost extends StatelessWidget {
             right: 0,
             child: Padding(
               padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.11,
+                top: MediaQuery.of(context).size.height * 0.09,
               ),
               child: BlurryContainer(
                 height: 200,

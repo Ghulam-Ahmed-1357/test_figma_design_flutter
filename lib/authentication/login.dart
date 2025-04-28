@@ -2,6 +2,7 @@ import 'package:first_figma_design/app_navigation/app_navigation.dart';
 import 'package:first_figma_design/custom_widgets/custom_button.dart';
 import 'package:first_figma_design/route_names/route_names.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -53,7 +54,7 @@ class Login extends StatelessWidget {
               padding: const EdgeInsets.only(top: 2),
               child: InkWell(
                 onTap: () {
-                  AppNavigation.pushNamed(context, RouteNames.mainPage);
+                  Get.toNamed(RouteNames.mainPage);
                 },
                 child: Text.rich(
                   TextSpan(

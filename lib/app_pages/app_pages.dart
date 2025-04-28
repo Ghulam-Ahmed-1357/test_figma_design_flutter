@@ -9,7 +9,7 @@ class AppPages{
   static Map<String,WidgetBuilder> getRoutes() {
     return {
       RouteNames.login : (context) => const Login(),
-      RouteNames.home : (context) => const HomePage(),
+      RouteNames.home : (context) => HomePage(),
       RouteNames.matchPage : (context) => const MatchPage(),
       RouteNames.mainPage : (context) => MainPage(),
     };
