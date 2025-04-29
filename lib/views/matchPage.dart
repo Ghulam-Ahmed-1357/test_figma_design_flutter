@@ -1,4 +1,5 @@
 import 'package:first_figma_design/custom_widgets/match_results.dart';
+import 'package:first_figma_design/custom_widgets/profile.dart';
 import 'package:first_figma_design/models/model1.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ class MatchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Model1> myGridList = [
       Model1(
-        image: 'assets/images/p31.jfif',
+        image: 'assets/images/profile1.png',
         matchPercent: 100,
         distance: 1.3,
         name: 'James',
@@ -17,7 +18,7 @@ class MatchPage extends StatelessWidget {
         nickName: 'HANOVER',
       ),
       Model1(
-        image: 'assets/images/p32.jfif',
+        image: 'assets/images/profile2.png',
         matchPercent: 94,
         distance: 2,
         name: 'Eddie',
@@ -25,7 +26,7 @@ class MatchPage extends StatelessWidget {
         nickName: 'DORTMUND',
       ),
       Model1(
-        image: 'assets/images/p33.jfif',
+        image: 'assets/images/profile3.png',
         matchPercent: 89,
         distance: 1.5,
         name: 'Brandon',
@@ -33,7 +34,7 @@ class MatchPage extends StatelessWidget {
         nickName: 'ALFRED',
       ),
       Model1(
-        image: 'assets/images/p34.jfif',
+        image: 'assets/images/profile4.png',
         matchPercent: 80,
         distance: 2.5,
         name: 'Alfredo',
@@ -41,7 +42,7 @@ class MatchPage extends StatelessWidget {
         nickName: 'HANDEN',
       ),
       Model1(
-        image: 'assets/images/p35.jfif',
+        image: 'assets/images/p31.jfif',
         matchPercent: 80,
         distance: 1.3,
         name: 'James',
@@ -49,7 +50,7 @@ class MatchPage extends StatelessWidget {
         nickName: 'WOLF',
       ),
       Model1(
-        image: 'assets/images/p36.jfif',
+        image: 'assets/images/p33.jfif',
         matchPercent: 92,
         distance: 1.3,
         name: 'Eddie',
@@ -127,6 +128,30 @@ class MatchPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 15),
+                SizedBox(
+                  height: myGridList.length * 250,
+                  child: GridView.builder(
+                    itemCount: myGridList.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 12,
+                      mainAxisSpacing: 12,
+                      childAspectRatio: 0.75, // Adjust if needed
+                    ),
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      final profile = myGridList[index];
+                      return SizedBox(
+                        child: Profile(image: profile.image,
+                            matchPercent: profile.matchPercent,
+                            distance: profile.distance,
+                            name: profile.name,
+                            age: profile.age,
+                            nickName: profile.nickName),
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
           ),
