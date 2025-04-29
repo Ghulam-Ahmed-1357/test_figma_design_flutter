@@ -82,78 +82,75 @@ class MatchPage extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    MatchResults(
-                      imageUrl: 'assets/images/pp1.png',
-                      icon: Icon(
-                        Icons.favorite_sharp,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      text: "Likes",
-                      count: " 32",
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  MatchResults(
+                    imageUrl: 'assets/images/pp1.png',
+                    icon: Icon(
+                      Icons.favorite_sharp,
+                      color: Colors.white,
+                      size: 30,
                     ),
-                    SizedBox(width: 20),
-                    MatchResults(
-                      imageUrl: 'assets/images/pp2.png',
-                      icon: Icon(
-                        Icons.messenger,
-                        color: Colors.white,
-                        size: 30,
+                    text: "Likes",
+                    count: " 32",
+                  ),
+                  SizedBox(width: 20),
+                  MatchResults(
+                    imageUrl: 'assets/images/pp2.png',
+                    icon: Icon(
+                      Icons.messenger,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                    text: "Connect",
+                    count: " 15",
+                  ),
+                ],
+              ),
+              SizedBox(height: 15),
+              Text.rich(
+                TextSpan(
+                  text: 'Your Matches ',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  children: [
+                    TextSpan(
+                      text: '47',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
                       ),
-                      text: "Connect",
-                      count: " 15",
                     ),
                   ],
                 ),
-                SizedBox(height: 15),
-                Text.rich(
-                  TextSpan(
-                    text: 'Your Matches ',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    children: [
-                      TextSpan(
-                        text: '47',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+              ),
+              SizedBox(height: 15),
+              Expanded(
+                child: GridView.builder(
+                  itemCount: myGridList.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    childAspectRatio: 0.75, // Adjust if needed
                   ),
+                  scrollDirection: Axis.vertical,
+                  itemBuilder: (context, index) {
+                    final profile = myGridList[index];
+                    return SizedBox(
+                      child: Profile(image: profile.image,
+                          matchPercent: profile.matchPercent,
+                          distance: profile.distance,
+                          name: profile.name,
+                          age: profile.age,
+                          nickName: profile.nickName),
+                    );
+                  },
                 ),
-                SizedBox(height: 15),
-                SizedBox(
-                  height: myGridList.length * 250,
-                  child: GridView.builder(
-                    itemCount: myGridList.length,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 12,
-                      mainAxisSpacing: 12,
-                      childAspectRatio: 0.75, // Adjust if needed
-                    ),
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      final profile = myGridList[index];
-                      return SizedBox(
-                        child: Profile(image: profile.image,
-                            matchPercent: profile.matchPercent,
-                            distance: profile.distance,
-                            name: profile.name,
-                            age: profile.age,
-                            nickName: profile.nickName),
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

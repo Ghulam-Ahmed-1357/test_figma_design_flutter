@@ -21,10 +21,10 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width * 0.45;
-    final height = MediaQuery.of(context).size.height * 0.55;
+    final height = MediaQuery.of(context).size.height * 0.3;
     return Container(
-      width: 200,
-      height: 200,
+      width: width,
+      height: height,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.blue, width: 5),
         borderRadius: BorderRadius.circular(25),
@@ -42,52 +42,59 @@ class Profile extends StatelessWidget {
             // width: MediaQuery.of(context).size.width * 0.45,
             // height: MediaQuery.of(context).size.height * 0.3,
           ),
-
-          Container(
-            margin: EdgeInsets.only(left: 30),
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(15),
-                bottomRight: Radius.circular(15),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              // margin: EdgeInsets.only(left: 30),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
               ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Text(
-                '$matchPercent% Match',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 120, left: 35),
-            decoration: BoxDecoration(
-              color: Colors.white54,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Text(
-                '$distance km away',
-                style: TextStyle(color: Colors.white),
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  '$matchPercent% Match',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 160, left: 27),
-            child: Text(
-              '$name, $age',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 1,
+            width: MediaQuery.of(context).size.width * 1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height * 0.15),
+                Container(
+                  // margin: EdgeInsets.only(top: 120, left: 35),
+                  decoration: BoxDecoration(
+                    color: Colors.white54,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Text(
+                      '$distance km away',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                Text(
+                  '$name, $age',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                ),
+                Text(nickName, style: TextStyle(color: Colors.white)),
+              ],
             ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 190, left: 35),
-            child: Text(nickName, style: TextStyle(color: Colors.white)),
           ),
           Positioned(
             bottom: 0,
