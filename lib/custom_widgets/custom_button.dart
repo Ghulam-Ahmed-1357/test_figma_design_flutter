@@ -12,6 +12,7 @@ class CustomButton extends StatelessWidget {
   final String? imageUrl;
   final double? imageHeight;
   final double? imageWidth;
+  final VoidCallback onTap;
 
   const CustomButton({
     super.key,
@@ -23,40 +24,43 @@ class CustomButton extends StatelessWidget {
     this.iconSize,
     required this.avatarRadius,
     this.imageUrl,
-    required this.textColor, this.imageHeight, this.imageWidth,
+    required this.textColor, this.imageHeight, this.imageWidth, required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        color: color,
-      ),
-      height: height ?? 50,
-      width: width ?? MediaQuery.of(context).size.height * 0.8,
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 25),
-            child: CircleAvatar(
-              radius: avatarRadius,
-              backgroundColor: Colors.white,
-              child: icon ?? Image.network(imageUrl!,height: imageHeight,width: imageWidth,),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30),
-            child: Text(
-              text,
-              style: TextStyle(
-                color: textColor,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: color,
+        ),
+        height: height ?? 50,
+        width: width ?? MediaQuery.of(context).size.height * 0.8,
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 25),
+              child: CircleAvatar(
+                radius: avatarRadius,
+                backgroundColor: Colors.white,
+                child: icon ?? Image.network(imageUrl!,height: imageHeight,width: imageWidth,),
               ),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(left: 30),
+              child: Text(
+                text,
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

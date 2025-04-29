@@ -34,10 +34,14 @@ class Login extends StatelessWidget {
                 textColor: Colors.white,
                 icon: Icon(Icons.phone_in_talk, color: Colors.blue),
                 color: Colors.blue,
+                onTap: () {
+                  Get.toNamed(RouteNames.mainPage);
+                },
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
+
               // child: ElevatedButton.icon(onPressed: (){}, label: Text('Login with Phone',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),), icon: CircleAvatar(backgroundColor: Colors.white,child: Icon(Icons.phone_in_talk,color: Colors.blue,)),style: ElevatedButton.styleFrom(backgroundColor: Colors.blue, minimumSize: Size.fromHeight(70)),),
               child: CustomButton(
                 text: "Login with Google",
@@ -48,6 +52,9 @@ class Login extends StatelessWidget {
                 avatarRadius: 15,
                 textColor: Colors.black,
                 color: Colors.grey.shade200,
+                onTap: () {
+                  Get.toNamed(RouteNames.mainPage);
+                },
               ),
             ),
             Padding(
