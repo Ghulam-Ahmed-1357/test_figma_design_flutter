@@ -1,6 +1,4 @@
-import 'package:first_figma_design/app_navigation/app_navigation.dart';
 import 'package:first_figma_design/controller/controller.dart';
-import 'package:first_figma_design/custom_widgets/custom_bottom_navigation_bar.dart';
 import 'package:first_figma_design/custom_widgets/home_page_post.dart';
 import 'package:first_figma_design/custom_widgets/profile_image_with_name.dart';
 import 'package:first_figma_design/models/model.dart';

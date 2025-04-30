@@ -1,4 +1,3 @@
-import 'package:first_figma_design/app_navigation/app_navigation.dart';
 import 'package:first_figma_design/custom_widgets/custom_button.dart';
 import 'package:first_figma_design/route_names/route_names.dart';
 import 'package:flutter/material.dart';
