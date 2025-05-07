@@ -1,7 +1,7 @@
 import 'package:first_figma_design/controller/controller.dart';
-import 'package:first_figma_design/custom_widgets/custom_bottom_navigation_bar.dart';
-import 'package:first_figma_design/views/home.dart';
-import 'package:first_figma_design/views/matchPage.dart';
+import 'package:first_figma_design/utils/custom_widgets/custom_bottom_navigation_bar/custom_bottom_navigation_bar.dart';
+import 'package:first_figma_design/views/home_page/home.dart';
+import 'package:first_figma_design/views/match_page/matchPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

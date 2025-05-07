@@ -1,8 +1,9 @@
+import 'package:first_figma_design/constants/constants.dart';
 import 'package:first_figma_design/controller/controller.dart';
-import 'package:first_figma_design/custom_widgets/home_page_post.dart';
-import 'package:first_figma_design/custom_widgets/profile_image_with_name.dart';
-import 'package:first_figma_design/models/model.dart';
-import 'package:first_figma_design/route_names/route_names.dart';
+import 'package:first_figma_design/models/model/model.dart';
+import 'package:first_figma_design/navigation/route_names/route_names.dart';
+import 'package:first_figma_design/utils/custom_widgets/home_page_post/home_page_post.dart';
+import 'package:first_figma_design/utils/custom_widgets/profile_image_with_name/profile_image_with_name.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +29,7 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
           title: Text(
-            'Friendzy',
+            Constant.homeTitle,
             style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30),
           ),
           actions: [
@@ -59,7 +60,7 @@ class HomePage extends StatelessWidget {
                   child: Row(
                     children: [
                       ProfileImageWithName(
-                        name: "My Story",
+                        name: Constant.myStory,
                         imageUrl: "assets/images/user_profile.png",
                         border: false,
                       ),
@@ -110,7 +111,7 @@ class HomePage extends StatelessWidget {
                                       horizontal: 30,
                                     ),
                                     child: Text(
-                                      'Make Friends',
+                                      Constant.makeFriends,
                                       style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
@@ -143,7 +144,7 @@ class HomePage extends StatelessWidget {
                                       horizontal: 25,
                                     ),
                                     child: Text(
-                                      'Search Partners',
+                                      Constant.searchPartners,
                                       style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
@@ -176,15 +177,15 @@ class HomePage extends StatelessWidget {
                     profileImage: 'assets/images/u1.png',
                   ),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 20),
                 Obx(
-                      () => HomePagePost(
+                  () => HomePagePost(
                     imageUrl:
-                    controller.isMakeFriends.value
-                        ? 'assets/images/image7.jfif'
-                        : 'assets/images/image10.jpeg',
+                        controller.isMakeFriends.value
+                            ? 'assets/images/image7.jfif'
+                            : 'assets/images/image10.jpeg',
                     text:
-                    'If you like to play football\nor any other game you \ncan pick',
+                        'If you like to play football\nor any other game you \ncan pick',
                     name: 'Hejeal Damon',
                     nickName: 'SYAIOELL',
                     title: 'Football',

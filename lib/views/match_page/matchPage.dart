@@ -1,6 +1,7 @@
-import 'package:first_figma_design/custom_widgets/match_results.dart';
-import 'package:first_figma_design/custom_widgets/profile.dart';
-import 'package:first_figma_design/models/model1.dart';
+import 'package:first_figma_design/constants/constants.dart';
+import 'package:first_figma_design/models/model1/model1.dart';
+import 'package:first_figma_design/utils/custom_widgets/match_results/match_results.dart';
+import 'package:first_figma_design/utils/custom_widgets/profile/profile.dart';
 import 'package:flutter/material.dart';
 
 class MatchPage extends StatelessWidget {
@@ -63,7 +64,7 @@ class MatchPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Matches',
+            Constant.matches,
             style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30),
           ),
           centerTitle: true,
@@ -94,18 +95,14 @@ class MatchPage extends StatelessWidget {
                       color: Colors.white,
                       size: 30,
                     ),
-                    text: "Likes",
+                    text: Constant.likes,
                     count: " 32",
                   ),
                   SizedBox(width: 20),
                   MatchResults(
                     imageUrl: 'assets/images/pp2.png',
-                    icon: Icon(
-                      Icons.messenger,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    text: "Connect",
+                    icon: Icon(Icons.messenger, color: Colors.white, size: 30),
+                    text: Constant.connect,
                     count: " 15",
                   ),
                 ],
@@ -113,7 +110,7 @@ class MatchPage extends StatelessWidget {
               SizedBox(height: 15),
               Text.rich(
                 TextSpan(
-                  text: 'Your Matches ',
+                  text: Constant.yourMatches,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   children: [
                     TextSpan(
@@ -140,12 +137,14 @@ class MatchPage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final profile = myGridList[index];
                     return SizedBox(
-                      child: Profile(image: profile.image,
-                          matchPercent: profile.matchPercent,
-                          distance: profile.distance,
-                          name: profile.name,
-                          age: profile.age,
-                          nickName: profile.nickName),
+                      child: Profile(
+                        image: profile.image,
+                        matchPercent: profile.matchPercent,
+                        distance: profile.distance,
+                        name: profile.name,
+                        age: profile.age,
+                        nickName: profile.nickName,
+                      ),
                     );
                   },
                 ),

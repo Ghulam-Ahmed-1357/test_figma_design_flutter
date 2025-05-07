@@ -1,5 +1,6 @@
-import 'package:first_figma_design/custom_widgets/custom_button.dart';
-import 'package:first_figma_design/route_names/route_names.dart';
+import 'package:first_figma_design/constants/constants.dart';
+import 'package:first_figma_design/navigation/route_names/route_names.dart';
+import 'package:first_figma_design/utils/custom_widgets/custom_button/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +20,7 @@ class Login extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 10, bottom: 20),
               child: Text(
-                'Let`s meeting new \npeople around you',
+                Constant.loginText,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
@@ -27,7 +28,7 @@ class Login extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 40),
               // child: ElevatedButton.icon(onPressed: (){}, label: Text('Login with Phone',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),), icon: CircleAvatar(backgroundColor: Colors.white,child: Icon(Icons.phone_in_talk,color: Colors.blue,)),style: ElevatedButton.styleFrom(backgroundColor: Colors.blue, minimumSize: Size.fromHeight(70)),),
               child: CustomButton(
-                text: "Login with Phone",
+                text: Constant.loginWithPhone,
                 iconSize: 20,
                 avatarRadius: 15,
                 textColor: Colors.white,
@@ -43,7 +44,7 @@ class Login extends StatelessWidget {
 
               // child: ElevatedButton.icon(onPressed: (){}, label: Text('Login with Phone',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),), icon: CircleAvatar(backgroundColor: Colors.white,child: Icon(Icons.phone_in_talk,color: Colors.blue,)),style: ElevatedButton.styleFrom(backgroundColor: Colors.blue, minimumSize: Size.fromHeight(70)),),
               child: CustomButton(
-                text: "Login with Google",
+                text: Constant.loginWithGoogle,
                 imageUrl:
                     "https://th.bing.com/th/id/OIP.EhTMbGiYfYzQnWLgjZaoJAHaHa?w=198&h=198&c=7&r=0&o=5&pid=1.7",
                 imageHeight: 25,
@@ -54,7 +55,7 @@ class Login extends StatelessWidget {
                 onTap: () {
                   Get.toNamed(RouteNames.mainPage);
                 },
-              ),
+),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 2),
@@ -64,11 +65,11 @@ class Login extends StatelessWidget {
                 },
                 child: Text.rich(
                   TextSpan(
-                    text: 'Don`t have an account? ',
+                    text: Constant.doNotHaveAcc,
                     style: TextStyle(color: Colors.grey, fontSize: 16),
                     children: [
                       TextSpan(
-                        text: 'Sign Up',
+                        text: Constant.signup,
                         style: TextStyle(color: Colors.blue),
                       ),
                     ],
